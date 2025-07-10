@@ -46,6 +46,7 @@ buttons.forEach((button) => {
         }
       }
       display.innerText = result;
+      expression = result.toString();
     }
   });
 });
