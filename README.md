@@ -49,7 +49,7 @@ calculator/
 
 - HTML
 - CSS
-- JavaScript (Vanilla JS)
+- JavaScript
   - DOM Manipulation
   - Event Listeners
   - String Parsing
