@@ -60,8 +60,6 @@ calculator/
 
 <img width="1902" height="917" alt="image" src="https://github.com/user-attachments/assets/0859a443-c384-421e-9289-499e6daa6717" />
 
-> Replace this URL with your own screenshot if hosted.
-
 ---
 
 ## ✍️ Author
