@@ -34,6 +34,10 @@ main {
   flex-direction: column;
   justify-content: space-between;
 }
+.calculator:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease-in-out;
+}
 
 .operations {
   display: flex;
