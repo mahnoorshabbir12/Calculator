@@ -1,52 +1,39 @@
 let buttons = document.querySelectorAll(".button");
 let backspace = document.querySelector("#backspace");
 let display = document.querySelector("#display");
+
 let expression = "";
 let result;
-let ex1 = "";
-let ex2 = "";
+
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
-    expression += button.innerText;
-    display.innerText = expression;
     let value = button.innerText;
-    console.log(expression);
+    // Clear display
     if (value === "CE") {
       display.innerText = "0";
       expression = "";
-      ex1 = "";
-      ex2 = "";
+      return;
     }
+    // Backspace
     if (value === backspace.innerText) {
       expression = expression.slice(0, -1);
-      display.innerText = expression;
+      display.innerText = expression || "0";
+      return;
     }
+    // Evaluate expression
     if (value === "=") {
-      for (let x = 0; x < expression.length; x++) {
-        if (expression[x] === "+") {
-          ex1 = expression.slice(0, x);
-          ex2 = expression.slice(x + 1);
-          result = parseInt(ex1) + parseInt(ex2);
-          break;
-        } else if (expression[x] === "-") {
-          ex1 = expression.slice(0, x);
-          ex2 = expression.slice(x + 1);
-          result = parseInt(ex1) - parseInt(ex2);
-          break;
-        } else if (expression[x] === "*") {
-          ex1 = expression.slice(0, x);
-          ex2 = expression.slice(x + 1);
-          result = parseInt(ex1) * parseInt(ex2);
-          break;
-        } else if (expression[x] === "/") {
-          ex1 = expression.slice(0, x);
-          ex2 = expression.slice(x + 1);
-          result = parseInt(ex1) / parseInt(ex2);
-          break;
-        }
+      try {
+        result = eval(expression);
+        display.innerText = result;
+        expression = result.toString();
+      } catch (err) {
+        display.innerText = "Error";
+        expression = "";
       }
-      display.innerText = result;
-      expression = result.toString();
+      return;
     }
+    expression += value;
+    display.innerText = expression;
+    console.log(expression);
   });
 });
